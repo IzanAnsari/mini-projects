@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 100px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 150px;
+        }
+
+        input[type="button"] {
+            width: 120px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="num1" placeholder="Enter First Number">
+    <input type="text" name="" id="num2" placeholder="Enter Second Number"><br><br>
+    <input type="button" value="Addition" onclick="add()">
+    <input type="button" value="Subtraction" onclick="subs()">
+    <input type="button" value="Multiplication" onclick="multiply()">
+    <input type="button" value="Division" onclick="division()">
+    <h3 id="result"></h3>
+
+    <script>
+        // Your JavaScript functions here
+    </script>
+</body>
+</html>
+
+<script>
+    function add(){
+        var number1 = parseFloat(document.getElementById("num1").value);
+        var number2 = parseFloat(document.getElementById("num2").value);
+        var res = number1 + number2;
+        console.log(res);
+        document.getElementById("result").innerText = "Result: " + res;
+    }
+    
+    function subs(){
+        var number1=parseInt(document.getElementById("num1").value)
+        var number2=parseInt(document.getElementById("num2").value)
+        var res = number1 - number2
+        document.getElementById("result").innerText="Result: "+ res
+    }
+
+    function multiply(){
+        var number1=parseInt(document.getElementById("num1").value)
+        var number2=parseInt(document.getElementById("num2").value)
+        var res = number1 * number2
+        document.getElementById("result").innerText="Result: "+ res
+    }
+
+    function division(){
+        var number1=parseInt(document.getElementById("num1").value)
+        var number2=parseInt(document.getElementById("num2").value)
+        var res = number1 / number2
+        document.getElementById("result").innerText="Result: "+ res
+    }
+    // Define other mathematical operations (subs, multiply, division) similarly.
+</script>

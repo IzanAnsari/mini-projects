@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Plan</title>
+    <style>
+        .container{
+            /* border: 1px solid black; */
+            width: 1000px;
+            margin: 100px auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 1fr;
+
+        }
+        .container > div {
+            border: 1px solid black;
+            height: 390px;
+            width: 290px;
+            margin: 20px auto;
+        }
+        button{
+            height: 50px;
+            width: 160px;
+            /* margin: 0px 0px 0px 70px; */
+            color: blue;
+            border: 2px solid blue;
+            border-radius: 10px;
+        }
+        h3{
+            font-size: 20px;
+        }
+        .p{
+            margin-top: -30px;
+            font-style: italic;
+        }
+        h2{
+            font-size: 30px;
+        }
+        h1{
+            font-size: 40px;
+        }
+        p{
+            font-size: 20px;
+            color: gray;
+        }
+        h1,h3,h2,p{
+            text-align: center;
+        }
+        .orn{
+            color: orange;
+        }
+        .blu{
+            color: blue;
+        }
+        .blu2{
+            color: white;
+            background-color: rgb(94, 94, 227);
+        }
+            
+        .grn{
+            color: lawngreen;
+        }
+         .bot{
+            width: 160px;
+            margin: auto;
+        } 
+        @media all and (max-width:750px) and (min-width:450.5px){
+            .container{
+                display: grid;
+                grid-template-columns: 2fr 2fr;
+                grid-template-rows: 2fr;
+            }
+            .container > div {
+                height: 430px;
+                width: 370px;
+                
+            }
+            h1,.p1{
+            /* margin-left: 10px; */
+            margin-right: -390px;
+        }
+            
+
+            
+        }
+        @media all and (max-width:450.5px) and (min-width:250px){
+            .container{
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 3fr;
+            }
+            .container > div{
+                /* border: 1px solid black; */
+                width: 700px;
+                height: 1100px;
+                margin-bottom: 130px;
+                border-radius: 50px;
+                background-color:aliceblue;
+            }
+            h1,.p1{
+            margin-left: 90px;
+            margin-right: -490px;
+        }
+        h3{
+            font-size: 50px;
+        }
+        .p{
+            margin-top: -30px;
+            font-style: italic;
+        }
+        h2{
+            font-size: 80px;
+        }
+        h1{
+            font-size: 70px;
+        }
+        p{
+            font-size: 50px;
+        }
+        button{
+            height: 100px;
+            width: 250px;
+            font-size: 40px;
+            /* margin: 230px; */
+        }
+    }
+
+        
+        
+        
+        
+
+    </style>
+</head>
+<body>
+    <h1>Choose a plan that right for your business</h1>
+    <p class="p1">We collect review from our  users so you can get honest opinion of what an <br> experience with our website are really like!</p>
+    <div class="container">
+        <div class="cards">
+            <h3>Starter Plan</h3>
+            <h2 class="grn">Free</h2>
+            <p class="p">per month</p><br>
+            <p>We collect review from our <br> users so you can get honest <br> opinion of what an experience <br> with our website are really like!</p>
+            <div class="bot"><button>Start Now</button></div>
+        </div>
+        <div class="cards">
+            <h3>Business Plan</h3>
+            <h2 class="orn">$39.00</h2>
+            <p class="p">per month</p><br>
+            <p>We collect review from our <br> users so you can get honest <br> opinion of what an experience <br> with our website are really like!</p>
+            <div class="bot"><button class="blu2">Start Now</button></div>
+        </div>
+        <div class="cards mid">
+            <h3>Premium Plan</h3>
+            <h2 class="blu">$59.00</h2>
+            <p class="p">per month</p><br>
+            <p>We collect review from our <br> users so you can get honest <br> opinion of what an experience <br> with our website are really like!</p>
+            <div class="bot"><button >Start Now</button></div>
+        </div>
+    </div>
+</body>
+</html>

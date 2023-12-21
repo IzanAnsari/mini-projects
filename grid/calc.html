@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: -50px;
+            
+
+        }
+        .wrapper{
+            /* border: 1px solid black; */
+            width: 450px;
+            margin: auto;
+        }
+
+        .container {
+            border: 1px solid black;
+            height: 420px;
+            width: 320px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: repeat(5, 70px);
+            gap: 15px;
+            grid-template-areas: "a a a a"
+                "b c d e"
+                "f g h i"
+                "j k l m"
+                "n o p q";
+
+        }
+
+        .container>div:nth-child(1) {
+            border: 1px solid black;
+            grid-area: a;
+        }
+
+        .container>div:nth-child(2) {
+            border: 1px solid black;
+            grid-area: b;
+        }
+
+        .container>div:nth-child(3) {
+            border: 1px solid black;
+            grid-area: c;
+        }
+
+        .container>div:nth-child(4) {
+            border: 1px solid black;
+            grid-area: d;
+        }
+
+        .container>div:nth-child(5) {
+            /* border:1px solid black; */
+            background-color: black;
+            color: whitesmoke;
+            grid-area: e;
+        }
+
+        .container>div:nth-child(6) {
+            border: 1px solid black;
+            grid-area: f;
+        }
+
+        .container>div:nth-child(7) {
+            border: 1px solid black;
+            grid-area: g;
+        }
+
+        .container>div:nth-child(8) {
+            border: 1px solid black;
+            grid-area: h;
+        }
+
+        .container>div:nth-child(9) {
+            /* border:1px solid black; */
+            background-color: black;
+            color: whitesmoke;
+            grid-area: i;
+        }
+
+        .container>div:nth-child(10) {
+            border: 1px solid black;
+            grid-area: j;
+        }
+
+        .container>div:nth-child(11) {
+            border: 1px solid black;
+            grid-area: k;
+        }
+
+        .container>div:nth-child(12) {
+            border: 1px solid black;
+            grid-area: l;
+        }
+
+        .container>div:nth-child(13) {
+            /* border:1px solid black; */
+            background-color: black;
+            color: whitesmoke;
+            grid-area: m;
+        }
+
+        .container>div:nth-child(14) {
+            /* border:1px solid red; */
+            background-color: red;
+            color: whitesmoke;
+            grid-area: n;
+        }
+
+        .container>div:nth-child(15) {
+            border: 1px solid black;
+            grid-area: o;
+        }
+
+        .container>div:nth-child(16) {
+            /* border:1px solid black; */
+            background-color: black;
+            color: whitesmoke;
+            grid-area: p;
+        }
+
+        .container>div:nth-child(17) {
+            /* border:1px solid black; */
+            background-color: black;
+            color: whitesmoke;
+            grid-area: q;
+        }
+
+        .container>div {
+            padding: 20px;
+            font-size: 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+            
+        }
+        @media all and (max-width:450px) and (min-width:250px){
+            .wrapper{
+                width: 450px;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Scientific Calculator</h2>
+        <div class="container">
+            <div id="display"></div>
+            <div class="buttons" onclick="appendToDisplay('1')">1</div>
+            <div class="buttons" onclick="appendToDisplay('2')">2</div>
+            <div class="buttons" onclick="appendToDisplay('3')">3</div>
+            <div class="buttons color1" onclick="appendToDisplay('+')">+</div>
+            <div class="buttons" onclick="appendToDisplay('4')">4</div>
+            <div class="buttons" onclick="appendToDisplay('5')">5</div>
+            <div class="buttons" onclick="appendToDisplay('6')">6</div>
+            <div class="buttons color1" onclick="appendToDisplay('-')">-</div>
+            <div class="buttons" onclick="appendToDisplay('7')">7</div>
+            <div class="buttons" onclick="appendToDisplay('8')">8</div>
+            <div class="buttons" onclick="appendToDisplay('9')">9</div>
+            <div class="buttons color1" onclick="appendToDisplay('*')">x</div>
+            <div class="buttons color" onclick="clearDisplay()">C</div>
+            <div class="buttons" onclick="appendToDisplay('0')">0</div>
+            <div class="buttons color1" onclick="calculateResult()">=</div>
+            <div class="buttons color1" onclick="appendToDisplay('/')">/</div>
+
+
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+
+        // Load previous data from localStorage when the page loads
+        window.onload = function () {
+            const savedData = localStorage.getItem('calculatorData');
+            if (savedData) {
+                display.innerText = savedData;
+            }
+        };
+
+        function appendToDisplay(value) {
+            display.innerText += value;
+            saveDataToLocalStorage(); // Save data to localStorage after every operation
+        }
+
+        function clearDisplay() {
+            display.innerText = '';
+            saveDataToLocalStorage(); // Save data to localStorage after clearing
+        }
+
+        function calculateResult() {
+            try {
+                display.innerText = eval(display.innerText);
+                saveDataToLocalStorage(); // Save data to localStorage after calculation
+            } catch (error) {
+                display.innerText = 'Error';
+                saveDataToLocalStorage(); // Save data to localStorage in case of an error
+            }
+        }
+
+        function saveDataToLocalStorage() {
+            localStorage.setItem('calculatorData', display.innerText);
+        }
+
+        // Add event listeners for keyboard input
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+
+            if (key >= '0' && key <= '9') {
+                appendToDisplay(key);
+            } else if (key === '+') {
+                appendToDisplay('+');
+            } else if (key === '-') {
+                appendToDisplay('-');
+            } else if (key === '*') {
+                appendToDisplay('*');
+            } else if (key === '/') {
+                appendToDisplay('/');
+            } else if (key === 'Enter') {
+                calculateResult();
+            } else if (key === 'Escape') {
+                clearDisplay();
+            } else if (key === 'Backspace') {
+                display.innerText = display.innerText.slice(0, -1); // Remove the last character
+                saveDataToLocalStorage(); // Save data to localStorage after backspace
+            }
+        });
+    </script>
+</body>
+
+</html>

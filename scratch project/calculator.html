@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+        /* body{
+        background-color: aliceblue;
+       } */
+        .container {
+            background-color: white;
+            border: 2px solid rgb(224, 219, 219);
+            height: 550px;
+            width: 430px;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+
+        }
+
+        #display {
+            border: 2px solid rgb(225, 211, 211);
+            margin: auto;
+            height: 57px;
+            /* background-color: whitesmoke; */
+            width: 340px;
+            margin-top: 30px;
+            font-weight: 700;
+            padding-top: 30px;
+            padding-left: 25px;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+        }
+
+        .main {
+            /* border: 2px solid black; */
+            display: flex;
+            flex-wrap: wrap;
+            width: 390px;
+            margin: auto;
+            margin-top: 35px;
+        }
+
+        .buttons {
+            border: 2px solid rgb(222, 216, 216);
+            height: 77px;
+            width: 77px;
+            margin: 0px 10px 10px 10px;
+            /* background-color: whitesmoke; */
+            padding-top: 20px;
+            padding-left: 25px;
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: 3px 3px rgb(163, 160, 160);
+            cursor: pointer;
+            /* transition: background-color 0.3s; */
+            /* display:inline-block; */
+            /* margin-left: 45px; */
+            /* margin-top: 45px; */
+
+        }
+
+        .buttons:hover {
+            background-color: #979ca0;
+        }
+
+        .color1 {
+            background-color: black;
+            color: whitesmoke;
+        }
+
+        .color1:hover {
+            background-color: #9ca499;
+        }
+
+        .color {
+            background-color: red;
+            color: whitesmoke;
+        }
+
+        .color:hover {
+            background-color: #ffdf3e;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Scientific Calculator</h2>
+        <div class="container">
+            <div id="display"></div>
+            <div class="main">
+                <div class="buttons" onclick="appendToDisplay('1')">1</div>
+                <div class="buttons" onclick="appendToDisplay('2')">2</div>
+                <div class="buttons" onclick="appendToDisplay('3')">3</div>
+                <div class="buttons color1" onclick="appendToDisplay('+')">+</div>
+                <div class="buttons" onclick="appendToDisplay('4')">4</div>
+                <div class="buttons" onclick="appendToDisplay('5')">5</div>
+                <div class="buttons" onclick="appendToDisplay('6')">6</div>
+                <div class="buttons color1" onclick="appendToDisplay('-')">-</div>
+                <div class="buttons" onclick="appendToDisplay('7')">7</div>
+                <div class="buttons" onclick="appendToDisplay('8')">8</div>
+                <div class="buttons" onclick="appendToDisplay('9')">9</div>
+                <div class="buttons color1" onclick="appendToDisplay('*')">x</div>
+                <div class="buttons color" onclick="clearDisplay()">C</div>
+                <div class="buttons" onclick="appendToDisplay('0')">0</div>
+                <div class="buttons color1" onclick="calculateResult()">=</div>
+                <div class="buttons color1" onclick="appendToDisplay('/')">/</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+
+        // Load previous data from localStorage when the page loads
+        window.onload = function () {
+            const savedData = localStorage.getItem('calculatorData');
+            if (savedData) {
+                display.innerText = savedData;
+            }
+        };
+
+        function appendToDisplay(value) {
+            display.innerText += value;
+            saveDataToLocalStorage(); // Save data to localStorage after every operation
+        }
+
+        function clearDisplay() {
+            display.innerText = '';
+            saveDataToLocalStorage(); // Save data to localStorage after clearing
+        }
+
+        function calculateResult() {
+            try {
+                display.innerText = eval(display.innerText);
+                saveDataToLocalStorage(); // Save data to localStorage after calculation
+            } catch (error) {
+                display.innerText = 'Error';
+                saveDataToLocalStorage(); // Save data to localStorage in case of an error
+            }
+        }
+
+        function saveDataToLocalStorage() {
+            localStorage.setItem('calculatorData', display.innerText);
+        }
+
+        // Add event listeners for keyboard input
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+
+            if (key >= '0' && key <= '9') {
+                appendToDisplay(key);
+            } else if (key === '+') {
+                appendToDisplay('+');
+            } else if (key === '-') {
+                appendToDisplay('-');
+            } else if (key === '*') {
+                appendToDisplay('*');
+            } else if (key === '/') {
+                appendToDisplay('/');
+            } else if (key === 'Enter') {
+                calculateResult();
+            } else if (key === 'Escape') {
+                clearDisplay();
+            } else if (key === 'Backspace') {
+                display.innerText = display.innerText.slice(0, -1); // Remove the last character
+                saveDataToLocalStorage(); // Save data to localStorage after backspace
+            }
+        });
+    </script>
+
+    <!-- <script>
+        // JavaScript code here
+        const display = document.getElementById('display');
+
+        // Load previous data from localStorage when the page loads
+        window.onload = function () {
+            const savedData = localStorage.getItem('calculatorData');
+            if (savedData) {
+                display.innerText = savedData;
+            }
+        };
+
+        function appendToDisplay(value) {
+            display.innerText += value;
+            saveDataToLocalStorage(); // Save data to localStorage after every operation
+        }
+
+        function clearDisplay() {
+            display.innerText = '';
+            saveDataToLocalStorage(); // Save data to localStorage after clearing
+        }
+
+        function calculateResult() {
+            try {
+                display.innerText = eval(display.innerText);
+                saveDataToLocalStorage(); // Save data to localStorage after calculation
+            } catch (error) {
+                display.innerText = 'Error';
+                saveDataToLocalStorage(); // Save data to localStorage in case of an error
+            }
+        }
+
+        function saveDataToLocalStorage() {
+            localStorage.setItem('calculatorData', display.innerText);
+        }
+    </script> -->
+    <!-- 
+        <script>
+        // JavaScript code here
+        const display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            display.innerText += value;
+        }
+
+        function clearDisplay() {
+            display.innerText = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.innerText = eval(display.innerText);
+            } catch (error) {
+                display.innerText = 'Error';
+            }
+        }
+    </script>
+     -->
+</body>
+
+</html>
+
+
+<!-- 
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+      
+
+       /* body{
+        background-color: aliceblue;
+       } */
+      .container {
+            background-color: white;
+            border: 2px solid rgb(224, 219, 219);
+            height: 550px;
+            width: 430px;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+            
+        }
+
+        #display {
+            border: 2px solid rgb(225, 211, 211);
+            margin: auto;
+            height: 85px;
+            /* background-color: whitesmoke; */
+            width: 370px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px rgb(201, 196, 196);
+        }
+
+        .main {
+            /* border: 2px solid black; */
+            display: flex;
+            flex-wrap: wrap;
+            width: 390px;
+            margin: auto;
+            margin-top: 35px;
+        }
+
+        .buttons {
+            border: 2px solid rgb(222, 216, 216);
+            height: 77px;
+            width: 77px;
+            margin: 0px 10px 10px 10px;
+            /* background-color: whitesmoke; */
+            padding-top: 20px;
+            padding-left: 25px;
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 30px;
+            border-radius: 10px;
+            box-shadow: 3px 3px rgb(163, 160, 160)
+            /* display:inline-block; */
+            /* margin-left: 45px; */
+            /* margin-top: 45px; */
+
+
+        }
+        .color1{
+            background-color: black;
+            color: whitesmoke;
+        }
+        .color{
+            background-color: red;
+            color: whitesmoke;
+        }
+        h2{
+            text-align: center;
+            margin-top: 40px;
+            font-size: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Scientific Calculator</h2>
+        <div class="container">
+            <div id="display"></div>
+            <div class="main">
+                <div class="buttons">1</div>
+                <div class="buttons">2</div>
+                <div class="buttons">3</div>
+                <div class="buttons color1">+</div>
+                <div class="buttons">4</div>
+                <div class="buttons">5</div>
+                <div class="buttons">6</div>
+                <div class="buttons color1">-</div>
+                <div class="buttons">7</div>
+                <div class="buttons">8</div>
+                <div class="buttons">9</div>
+                <div class="buttons color1">x</div>
+                <div class="buttons color">C</div>
+                <div class="buttons">0</div>
+                <div class="buttons color1">=</div>
+                <div class="buttons color1">/</div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+ -->

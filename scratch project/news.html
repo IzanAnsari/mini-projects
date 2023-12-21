@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>News Web</title>
+    <style>
+        body {
+            background-color: black;
+
+            /* height: 1100px; */
+        }
+
+        .container {
+            border: 1px solid rgb(237, 237, 237);
+            background-color: white;
+            height: 700px;
+            width: 950px;
+            margin: auto;
+            margin-top: 0px;
+        }
+
+        .row1 {
+            /* border: 1px solid black; */
+            /* height: 2700px; */
+            width: 920px;
+            margin: 20px 25px 0px 15px;
+            display: flex;
+            /* flex-wrap: nowrap; */
+            justify-content: space-evenly;
+            flex-direction: row;
+            /* padding-top: 10px; */
+
+        }
+
+        .row1>div {
+            border: 1px solid black;
+            height: 290px;
+            width: 230px;
+            border-radius: 10px;
+            box-shadow: 3px 3px gray;
+            position: static;
+        }
+
+        .img3 {
+            width: 100%;
+            height: 45%;
+            margin-top: 20px;
+
+
+        }
+
+        .at {
+            background-color: aliceblue;
+            padding-bottom: 20px;
+        }
+
+        p,
+        span {
+            margin: -20px 0px 0px 10px;
+            font-size: 12px;
+        }
+
+        h6 {
+            color: blue;
+            margin-left: 10px;
+        }
+
+        h4 {
+            font-size: 25px;
+            text-align: center;
+        }
+
+        h5 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 17px;
+            color: red
+        }
+
+        .row2 {
+            /* border: 1px solid black; */
+            height: 160px;
+            width: 950px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            margin-top: -10px;
+            /* align-items: center; */
+        }
+
+        .card2 {
+            border: 1px solid rgb(233, 227, 227);
+            height: 100px;
+            width: 260px;
+            border-radius: 10px;
+            /* position: relative; */
+        }
+
+        .bor {
+            border: 1px solid red;
+            width: 80px;
+            height: 20px;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 60px;
+            text-align: center;
+            color: red;
+        }
+
+        .img2 {
+            height: 60%;
+            width: 70%;
+            margin: 20px 0px 0px 30px
+        }
+
+        img {
+            height: 80%;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+
+
+
+
+
+        /* flex ,flex box, flexibal box , Unidirectional or 1 directional */
+        /* flexproperties => parent child 
+
+Parent Properties:
+display:flex
+flex-direction:  row/row-reverse/column/column-reverse
+flex-wrap :nowrap / wrap
+flex-flow : flex-direction flex-wrap
+jutify-content: flex-start/centre/flex-end  
+align-items:start,end,center vertically set 
+align-content:center,start,end : it works when there's more than one row
+
+*/
+
+        /* 
+child Properties
+
+order: any number
+flex-basis || width
+flex-grow 
+*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="at">
+            <h4>Masai in the News</h4>
+            <div class="row1">
+                <div class="cards">
+                    <img class="img3" src="https://www.dhirassociates.com/wp-content/uploads/2020/10/ET.png" alt="">
+                    <h6>21 Dec 2021</h6>
+                    <p>Edtech startup Masai School acquires data analytics firm Prepleaf for $1 million.<br><span>With
+                            their latest acquisition, Masai moves one step closer to becoming...</span></p>
+                </div>
+                <div class="cards">
+                    <img class="img3"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWrUyKMkpEf-kf6kye529AYiiN7v9TSerZMAfylmGwJD9BjJ7o"
+                        alt="">
+                    <h6>26 Oct 2021</h6>
+                    <p>Kunal Shah, Vijay Shekhar Sharma, Amrish Rau among 21 angel investors in Masai
+                        School<br><span>Masai School is aiming to expand to 20 smaller cities by March 2022
+                            and...</span></p>
+                </div>
+                <div class="cards">
+                    <img class="img3"
+                        src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMMed_kmUiW7HvF83nfGYm9Gpzb2Rt0_v0KnO6By7r84qZojPA"
+                        alt="">
+                    <h6>26 Nov 2022</h6>
+                    <p>Edtech startup Masai School acquires data analytics firm Prepleaf for $1 million.<br><span>With
+                            their latest acquisition, Masai moves one step closer to becoming...</span></p>
+                </div>
+            </div>
+            <div class="bor"> see more...</div>
+        </div>
+        <h4>Our Invester, Who believe in us</h4>
+        <div class="row2">
+            <div class="card2">
+                <img class="img2"
+                    src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTXuk_TqDV8IQ-S2FzGKZUydB7O-WHfLQD_aaXBsBs6eEFtCe_G"
+                    alt="">
+            </div>
+            <div class="card2">
+                <img class="im"
+                    src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRfiPlYLjaJTw2dIIstL1QBCwHtWjMyfoQbj95DFR9ctkGp4ZOM"
+                    alt="">
+            </div>
+            <div class="card2">
+                <img class="img2"
+                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQdRUkk5TIkjBRGvItYP7esBcheAZWSdG2WK49cbmzfZnfoGC5v"
+                    alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

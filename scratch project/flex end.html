@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex first</title>
+    <style>
+        .container{
+            border: 4px solid green;
+            width: 1200px;
+            height: 400px;
+            margin: auto;
+            display: flex;
+            /* flex-direction:column; */
+            flex-wrap: wrap;
+            /* justify-content:space-around ; */
+           /* align-items: start; */
+           /* align-content: space-evenly */
+           /* justify-content: center; */
+           /* align-content: space-evenly; */
+        }
+        /* .card */
+        .container > div{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            font-size: 40px;
+            
+        }
+        /* #item1{
+            order: 4;
+        }
+        #item2{
+            order: 2;
+        } */
+
+        #grownItem{
+            flex-grow: 1;
+        }
+
+/* flex ,flex box, flexibal box , Unidirectional or 1 directional */
+/* flexproperties => parent child 
+
+Parent Properties:
+display:flex
+flex-direction:  row/row-reverse/column/column-reverse
+flex-wrap :nowrap / wrap
+flex-flow : flex-direction flex-wrap
+jutify-content: flex-start/centre/flex-end  
+align-items:start,end,center vertically set 
+align-content:center,start,end : it works when there's more than one row
+
+*/
+
+/* 
+child Properties
+
+order: any number
+flex-basis || width
+flex-grow 
+*/
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="flex-grow: 2;">1</div>
+        <!-- 4 -->
+        <div >2</div>
+        <!-- 2 -->
+        <div >3</div> 
+        <!-- <div style="flex-basis: 800px;">4</div> -->
+        <div style="flex-grow: 3;">4</div>
+
+        <div style="flex-grow: 1;">5</div>
+        
+        
+    </div>
+</body>
+</html>

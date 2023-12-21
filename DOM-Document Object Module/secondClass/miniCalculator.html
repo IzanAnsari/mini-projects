@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+    <style>
+        input, button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="num1">Enter Number 1: </label>
+    <input type="text" id="num1">
+
+    <label for="num2">Enter Number 2: </label>
+    <input type="text" id="num2">
+
+    <br>
+
+    <button onclick="performOperation('add')">Add</button>
+    <button onclick="performOperation('subtract')">Subtract</button>
+    <button onclick="performOperation('divide')">Divide</button>
+    <button onclick="performOperation('multiply')">Multiply</button>
+    <BUtton ></BUtton>
+
+    <h1 id="result"></h1>
+
+    <script>
+        function performOperation(operation) {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var resultElement = document.getElementById('result');
+
+            switch (operation) {
+                case 'add':
+                    resultElement.innerText = 'Result: ' + (num1 + num2);
+                    break;
+                case 'subtract':
+                    resultElement.innerText = 'Result: ' + (num1 - num2);
+                    break;
+                case 'divide':
+                    resultElement.innerText = num2 !== 0 ? 'Result: ' + (num1 / num2) : 'Error: Division by zero';
+                    break;
+                case 'multiply':
+                    resultElement.innerText = 'Result: ' + (num1 * num2);
+                    break;
+                default:
+                    resultElement.innerText = 'Invalid operation';
+            }
+        }
+    </script>
+
+</body>
+</html>

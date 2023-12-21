@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media1 Query</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            width: 1000px;
+            height: 500px;
+            margin: 8% auto;
+            /* position: absolute; */
+            
+        
+        }
+        .box5{
+            border: 1px solid black;
+            background-color: yellow;
+            height: 40px;
+            width: 870px;
+            margin: 30px auto;
+            padding: 30px;
+            font-size: 30px;
+            border-radius: 10px;
+            
+            
+        }
+        .box6{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+        }
+        .cards{
+            border-radius: 10px;
+            border: 1px solid black;
+            height: 260px;
+            width: 160px;
+            padding: 20px;
+            font-size: 30px;
+            /* margin-top: px/; */
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: lightgreen;
+        }
+        .box3{
+            background-color: blueviolet;
+        }
+        .box4{
+            background-color: gray;
+        }
+        img{
+            height: 60px;
+            width: 60px;
+            position:fixed;
+            margin-left: 95%;
+            margin-top: 30%;
+
+        }
+        @media all and (max-width:450px) and (min-width:200px){
+            .container{
+            border: 1px solid black;
+            width: 400px;
+            height: 650px;
+            margin: 8% auto;
+        }
+        .box5{
+            width:280px;
+            height: 20px;
+        }
+        .box6{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: -20px;
+        }
+        .cards{
+            border: 1px solid black;
+            height: 80px;
+            width: 300px;
+            padding: 20px;
+            font-size: 30px;
+        }
+        img{
+            height: 60px;
+            width: 60px;
+            position:fixed;
+            margin-left: 85%;
+
+        }
+
+
+
+        }
+        @media all and (max-width:750px) and (min-width:451px){
+            .container{
+            border: 1px solid black;
+            width: 650px;
+            height: 750px;
+            margin: 8% auto;
+        }
+        .box5{
+            width: 550px;
+        }
+
+        .box6{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cards{
+            border: 1px solid black;
+            height: 230px;
+            width: 240px;
+            padding: 20px;
+            font-size: 30px;
+        }
+        img{
+            height: 60px;
+            width: 60px;
+            position:fixed;
+            /* margin-left: 80%; */
+
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box5">Navigation</div>
+        <div class="box6">
+            <img src="/MediaQuery/download (1).jpeg" alt="">
+            <div class="cards box1">1</div>
+            <div class="cards box2">2</div>
+            <div class="cards box3">3</div>
+            <div class="cards box4">4</div>
+        </div>
+    </div>
+</body>
+</html>

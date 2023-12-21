@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+        /* Your CSS styles here */
+        
+     .container{
+       height: 700px;
+       padding-top: 50px;
+       padding-left: 130px;
+     }
+     .card2{
+        display: inline-table;
+        width: 450px;
+        height: 650px;
+        margin-left: -10px;
+        background-color: #343a40;
+        color:whitesmoke;
+
+     }
+     .card{
+        display: inline-table;
+        width: 450px;
+        height: 650px;
+        margin-left: -10px;
+        background-color: #17a2b8;
+        color:whitesmoke;
+     }
+     p{
+        text-align: center;
+        font-size: 40px;
+     } 
+     li{
+    font-size: 25px;
+    padding-bottom: 15px;
+     }
+     span{
+        font-size: 20px;
+     }
+     h1{
+        font-size: 60px;
+        text-align: center;
+     }
+     button{
+        width: 120px;
+        height: 40px;
+        border-radius: 20px;
+        margin-left: 140px;
+        margin-top: 40px;
+        background-color: #343a40;
+        color: whitesmoke;
+        font-size: 20px;
+     }
+     .b2{
+        width: 120px;
+        height: 40px;
+        border-radius: 20px;
+        margin-left: 140px;
+        margin-top: 40px;
+        background-color: #17a2b8;
+        color: whitesmoke
+     }
+     .cut{
+        text-decoration: line-through;
+     }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Scientific Calculator</h2>
+        <div class="container">
+            <div id="display"></div>
+            <div class="main">
+                <div class="buttons" onclick="appendToDisplay('1')">1</div>
+                <div class="buttons" onclick="appendToDisplay('2')">2</div>
+                <div class="buttons" onclick="appendToDisplay('3')">3</div>
+                <div class="buttons color1" onclick="appendToDisplay('+')">+</div>
+                <div class="buttons" onclick="appendToDisplay('4')">4</div>
+                <div class="buttons" onclick="appendToDisplay('5')">5</div>
+                <div class="buttons" onclick="appendToDisplay('6')">6</div>
+                <div class="buttons color1" onclick="appendToDisplay('-')">-</div>
+                <div class="buttons" onclick="appendToDisplay('7')">7</div>
+                <div class="buttons" onclick="appendToDisplay('8')">8</div>
+                <div class="buttons" onclick="appendToDisplay('9')">9</div>
+                <div class="buttons color1" onclick="appendToDisplay('*')">x</div>
+                <div class="buttons color" onclick="clearDisplay()">C</div>
+                <div class="buttons" onclick="appendToDisplay('0')">0</div>
+                <div class="buttons color1" onclick="calculateResult()">=</div>
+                <div class="buttons color1" onclick="appendToDisplay('/')">/</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code here
+        const display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            display.innerText += value;
+        }
+
+        function clearDisplay() {
+            display.innerText = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.innerText = eval(display.innerText);
+            } catch (error) {
+                display.innerText = 'Error';
+            }
+        }
+    </script>
+</body>
+
+</html>
